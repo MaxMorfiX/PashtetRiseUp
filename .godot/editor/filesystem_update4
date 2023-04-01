@@ -8,3 +8,5 @@ res://scenes/game/Balloon.gd
 res://scenes/game/IngameScene.gd
 res://scenes/game/Balloon.tscn
 res://scenes/game/ThunderCloud.gd
+res://scenes/game/Bird.tscn
+res://scenes/game/Bird.gd

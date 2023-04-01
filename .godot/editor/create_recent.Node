@@ -1,10 +1,10 @@
-Label
 Timer
-Node
 PathFollow2D
 Path2D
-GraphNode
-Area2D
 CollisionShape2D
 Sprite2D
+Area2D
+Label
+Node
+GraphNode
 RigidBody2D

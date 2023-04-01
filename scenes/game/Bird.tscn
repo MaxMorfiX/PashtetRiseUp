@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ldxuuaenl8xh"]
+
+[ext_resource type="Script" path="res://scenes/game/Bird.gd" id="1_v4u0f"]
+[ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="1_ykm4q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1plob"]
+size = Vector2(40, 40)
+
+[node name="Bird" type="Area2D"]
+script = ExtResource("1_v4u0f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 1, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_ykm4q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1plob")
+
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 0.7
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

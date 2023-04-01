@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://srydoccky814"]
+[gd_scene load_steps=10 format=3 uid="uid://srydoccky814"]
 
 [ext_resource type="Script" path="res://scenes/game/IngameScene.gd" id="1_ogdb5"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/FadeOverlay.tscn" id="4_ogptr"]
@@ -6,12 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/PauseOverlay.tscn" id="5_ees85"]
 [ext_resource type="PackedScene" uid="uid://b21ke2q8qyehp" path="res://scenes/game/ThunderCloud.tscn" id="6_cx84d"]
 [ext_resource type="PackedScene" uid="uid://bym33b7x5swlx" path="res://scenes/game/Balloon.tscn" id="6_pyd8c"]
+[ext_resource type="PackedScene" uid="uid://ldxuuaenl8xh" path="res://scenes/game/Bird.tscn" id="7_aojjt"]
 
 [sub_resource type="Curve2D" id="Curve2D_ekfmq"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, -50, 0, 0, 0, 0, 576, -50)
 }
 point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_qmgo0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -23, 324, 0, 0, 0, 0, -23, -30, 0, 0, 0, 0, 600, -30, 0, 0, 0, 0, 600, 324)
+}
+point_count = 4
 
 [node name="IngameScene" type="Node2D"]
 script = ExtResource("1_ogdb5")
@@ -39,20 +46,32 @@ text = "Score: 0"
 [node name="ObstaclesSpawner" type="Node" parent="."]
 script = ExtResource("5_aj7uc")
 ThunderCloudScene = ExtResource("6_cx84d")
+BirdScene = ExtResource("7_aojjt")
 
-[node name="ThunderCloudsTimer" type="Timer" parent="ObstaclesSpawner"]
-
-[node name="ObstaclesPath" type="Path2D" parent="ObstaclesSpawner"]
+[node name="ThunderCloudsPath" type="Path2D" parent="ObstaclesSpawner"]
 curve = SubResource("Curve2D_ekfmq")
 
-[node name="ObstaclesSpawnLocation" type="PathFollow2D" parent="ObstaclesSpawner/ObstaclesPath"]
+[node name="ThunderCloudsSpawnLocation" type="PathFollow2D" parent="ObstaclesSpawner/ThunderCloudsPath"]
 position = Vector2(0, -50)
+
+[node name="BirdPath" type="Path2D" parent="ObstaclesSpawner"]
+curve = SubResource("Curve2D_qmgo0")
+
+[node name="BirdSpawnLocation" type="PathFollow2D" parent="ObstaclesSpawner/BirdPath"]
+position = Vector2(-23, 324)
+rotation = -1.5708
+
+[node name="BirdTimer" type="Timer" parent="ObstaclesSpawner"]
+
+[node name="ThunderCloudsTimer" type="Timer" parent="ObstaclesSpawner"]
 
 [node name="Obstacles" type="Node" parent="."]
 
 [node name="ScoreTimer" type="Timer" parent="."]
 wait_time = 0.05
 
+[connection signal="timeout" from="ObstaclesSpawner/BirdTimer" to="ObstaclesSpawner" method="_on_bird_timer_timeout"]
+[connection signal="timeout" from="ObstaclesSpawner/BirdTimer" to="ObstaclesSpawner" method="createBird"]
 [connection signal="timeout" from="ObstaclesSpawner/ThunderCloudsTimer" to="ObstaclesSpawner" method="createThunderCloud"]
 [connection signal="timeout" from="ScoreTimer" to="." method="add_score"]
 [connection signal="timeout" from="ScoreTimer" to="ObstaclesSpawner" method="_on_score_timer_timeout"]

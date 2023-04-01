@@ -3,7 +3,7 @@ extends RigidBody2D
 @export var max_speed = 700.0
 @export var deceleration = 50.0
 
-var risingSpeed = 30
+var risingSpeed = 50
 
 func _ready() -> void:
 	new_game()
