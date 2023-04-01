@@ -12,6 +12,9 @@ func new_game() -> void:
 	position = get_global_mouse_position()
 
 func _physics_process(delta):
+	
+	risingSpeed = get_parent().score*3
+	
 	var target_position = get_global_mouse_position()
 
 	var direction = (target_position - position).normalized()

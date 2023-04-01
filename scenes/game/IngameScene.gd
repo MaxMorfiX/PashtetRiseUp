@@ -28,6 +28,7 @@ func _save_game() -> void:
 
 func new_game():
 	score = 0
+	scoreLabel.text = "Score: " + str(score)
 	$Balloon.new_game()
 	$ObstaclesSpawner.new_game()
 	$ScoreTimer.start()
@@ -36,3 +37,9 @@ func add_score():
 	score += 0.07
 	score = round(score*1000)/1000
 	scoreLabel.text = "Score: " + str(score)
+	
+func restart_game():
+	for n in $Obstacles.get_children():
+		$Obstacles.remove_child(n)
+		n.queue_free()
+	new_game()
