@@ -62,9 +62,9 @@ func createBird() -> void:
 	bird.position = bird_spawn_location.position
 	
 	if(bird.position.x > 300):
-		bird.velocity.x = -30
+		bird.velocity.x = -40
 	else:
-		bird.velocity.x = 30
+		bird.velocity.x = 40
 	
 	# Spawn the bird by adding it to the Main scene.
 	obstacles.add_child(bird)
