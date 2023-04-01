@@ -3,6 +3,8 @@ extends Node2D
 @onready var fade_overlay = %FadeOverlay
 @onready var pause_overlay = %PauseOverlay
 
+var score = 0
+
 func _ready() -> void:
 	fade_overlay.visible = true
 	
@@ -10,6 +12,8 @@ func _ready() -> void:
 		SaveGame.load_game(get_tree())
 	
 	pause_overlay.game_exited.connect(_save_game)
+	
+	new_game()
 
 func _input(event) -> void:
 	if event.is_action_pressed("pause") and not pause_overlay.visible:
@@ -20,3 +24,11 @@ func _input(event) -> void:
 		
 func _save_game() -> void:
 	SaveGame.save_game(get_tree())
+
+func new_game():
+	score = 0
+	$Balloon.new_game()
+	$ObstaclesSpawner.new_game()
+
+func add_score():
+	score += 1

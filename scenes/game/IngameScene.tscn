@@ -1,12 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://doi6ct3dtyfmv"]
+[gd_scene load_steps=8 format=3 uid="uid://srydoccky814"]
 
 [ext_resource type="Script" path="res://scenes/game/IngameScene.gd" id="1_ogdb5"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/FadeOverlay.tscn" id="4_ogptr"]
+[ext_resource type="Script" path="res://scenes/game/ObstaclesSpawner.gd" id="5_aj7uc"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/PauseOverlay.tscn" id="5_ees85"]
-[ext_resource type="PackedScene" uid="uid://b4wdqegik04ac" path="res://scenes/game/Baloon.tscn" id="6_pyd8c"]
+[ext_resource type="PackedScene" uid="uid://b21ke2q8qyehp" path="res://scenes/game/ThunderCloud.tscn" id="6_cx84d"]
+[ext_resource type="PackedScene" uid="uid://bym33b7x5swlx" path="res://scenes/game/Balloon.tscn" id="6_pyd8c"]
+
+[sub_resource type="Curve2D" id="Curve2D_ekfmq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -50, 0, 0, 0, 0, 576, -50)
+}
+point_count = 2
 
 [node name="IngameScene" type="Node2D"]
 script = ExtResource("1_ogdb5")
+
+[node name="Balloon" parent="." instance=ExtResource("6_pyd8c")]
+unique_name_in_owner = true
+position = Vector2(278, 237)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -19,5 +31,25 @@ unique_name_in_owner = true
 process_mode = 2
 visible = false
 
-[node name="Baloon" parent="." instance=ExtResource("6_pyd8c")]
-position = Vector2(278, 237)
+[node name="Score" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ObstaclesSpawner" type="Node" parent="."]
+script = ExtResource("5_aj7uc")
+ThunderCloudScene = ExtResource("6_cx84d")
+
+[node name="ThunderCloudsTimer" type="Timer" parent="ObstaclesSpawner"]
+
+[node name="ObstaclesPath" type="Path2D" parent="ObstaclesSpawner"]
+curve = SubResource("Curve2D_ekfmq")
+
+[node name="ObstaclesSpawnLocation" type="PathFollow2D" parent="ObstaclesSpawner/ObstaclesPath"]
+position = Vector2(0, -50)
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ObstaclesSpawner/ThunderCloudsTimer" to="ObstaclesSpawner" method="createThunderCloud"]
+[connection signal="timeout" from="ScoreTimer" to="." method="add_score"]

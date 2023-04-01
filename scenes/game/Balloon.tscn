@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4wdqegik04ac"]
+[gd_scene load_steps=4 format=3 uid="uid://bym33b7x5swlx"]
 
-[ext_resource type="Script" path="res://scenes/game/Baloon.gd" id="1_4k81k"]
 [ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="1_sjjjb"]
+[ext_resource type="Script" path="res://scenes/game/Balloon.gd" id="1_ya47g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vamq"]
 size = Vector2(39, 39)
 
 [node name="Baloon" type="RigidBody2D"]
 gravity_scale = 0.0
-script = ExtResource("1_4k81k")
+script = ExtResource("1_ya47g")
 metadata/_edit_horizontal_guides_ = []
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

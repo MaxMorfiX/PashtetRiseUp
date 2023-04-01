@@ -3,3 +3,8 @@ res://ui/theme.tres
 res://scenes/game/Baloon.gd
 res://scenes/game/IngameScene.tscn
 res://scenes/game/Baloon.tscn
+res://scenes/game/ObstaclesSpawner.gd
+res://scenes/game/Balloon.gd
+res://scenes/game/IngameScene.gd
+res://scenes/game/Balloon.tscn
+res://scenes/game/ThunderCloud.gd
