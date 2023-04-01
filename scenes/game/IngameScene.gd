@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var fade_overlay = %FadeOverlay
 @onready var pause_overlay = %PauseOverlay
+@onready var scoreLabel = $UI/Score
 
 var score = 0
 
@@ -29,6 +30,9 @@ func new_game():
 	score = 0
 	$Balloon.new_game()
 	$ObstaclesSpawner.new_game()
+	$ScoreTimer.start()
 
 func add_score():
-	score += 1
+	score += 0.07
+	score = round(score*1000)/1000
+	scoreLabel.text = "Score: " + str(score)

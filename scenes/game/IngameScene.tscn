@@ -34,6 +34,7 @@ visible = false
 [node name="Score" type="Label" parent="UI"]
 offset_right = 40.0
 offset_bottom = 23.0
+text = "Score: 0"
 
 [node name="ObstaclesSpawner" type="Node" parent="."]
 script = ExtResource("5_aj7uc")
@@ -50,6 +51,7 @@ position = Vector2(0, -50)
 [node name="Obstacles" type="Node" parent="."]
 
 [node name="ScoreTimer" type="Timer" parent="."]
+wait_time = 0.05
 
 [connection signal="timeout" from="ObstaclesSpawner/ThunderCloudsTimer" to="ObstaclesSpawner" method="createThunderCloud"]
 [connection signal="timeout" from="ScoreTimer" to="." method="add_score"]
