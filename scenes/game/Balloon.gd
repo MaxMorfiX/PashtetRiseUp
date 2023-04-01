@@ -13,7 +13,7 @@ func new_game() -> void:
 
 func _physics_process(delta):
 	
-	risingSpeed = get_parent().score*3
+	risingSpeed = get_parent().score*4
 	
 	var target_position = get_global_mouse_position()
 
