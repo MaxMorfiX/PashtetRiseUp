@@ -3,6 +3,9 @@ extends RigidBody2D
 var max_speed = 700.0
 var deceleration = 50.0
 
+func _ready() -> void:
+	position = get_global_mouse_position()
+
 func _physics_process(delta):
 	var target_position = get_global_mouse_position()
 

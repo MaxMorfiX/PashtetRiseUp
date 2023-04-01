@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b21ke2q8qyehp"]
+
+[ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="1_j3oyo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlonc"]
+size = Vector2(250, 125)
+
+[node name="ThunderCloud" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.815686, 0, 0, 1)
+scale = Vector2(2, 1)
+texture = ExtResource("1_j3oyo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jlonc")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
