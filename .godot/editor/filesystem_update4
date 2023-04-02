@@ -11,6 +11,3 @@ res://scenes/menus/IntroScene.tscn
 res://scenes/menus/MainMenuScene.tscn
 res://scenes/menus/MainMenuScene.gd
 res://scenes/menus/GameSettingsScene.gd
-res://ui/overlays/FadeOverlay.gd
-res://ui/overlays/PauseOverlay.gd
-res://scenes/game/ThunderCloud.gd
