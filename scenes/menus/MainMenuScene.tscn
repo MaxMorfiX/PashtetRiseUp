@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/menus/MainMenuScene.gd" id="1_1foie"]
 [ext_resource type="PackedScene" uid="uid://srydoccky814" path="res://scenes/game/IngameScene.tscn" id="2_nl5i6"]
-[ext_resource type="PackedScene" path="res://scenes/menus/GameSettingsScene.tscn" id="3_dgs4d"]
+[ext_resource type="PackedScene" uid="uid://bg75qot1uwn83" path="res://scenes/menus/GameSettingsScene.tscn" id="3_dgs4d"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/FadeOverlay.tscn" id="3_kf1us"]
 [ext_resource type="PackedScene" uid="uid://b4blrdjthcxnn" path="res://ui/components/GameLogo.tscn" id="4_fnufg"]
 
@@ -64,7 +64,7 @@ theme_override_constants/margin_top = 10
 
 [node name="Label" type="Label" parent="UI/CenterContainer/VBoxContainer/Credits"]
 layout_mode = 2
-text = "credits"
+text = "MaxMorfiX, zox shakal & Eldirio"
 label_settings = SubResource("LabelSettings_2ikbh")
 horizontal_alignment = 1
 
@@ -75,3 +75,8 @@ visible = false
 [node name="Music" type="AudioStreamPlayer" parent="."]
 autoplay = true
 bus = &"Music"
+
+[connection signal="pressed" from="UI/CenterContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="UI/CenterContainer/VBoxContainer/NewGameButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="UI/CenterContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="UI/CenterContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
