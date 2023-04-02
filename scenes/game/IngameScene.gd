@@ -4,6 +4,8 @@ extends Node2D
 @onready var pause_overlay = %PauseOverlay
 @onready var scoreLabel = $UI/Score
 
+var isGameRestarting = false
+
 var score = 0
 
 func _ready() -> void:
@@ -39,7 +41,25 @@ func add_score():
 	scoreLabel.text = "Score: " + str(score)
 	
 func restart_game():
+	
+	isGameRestarting = true
+	
 	for n in $Obstacles.get_children():
 		$Obstacles.remove_child(n)
 		n.queue_free()
-	new_game()
+		
+	$ScoreTimer.stop()
+	$ObstaclesSpawner.stop_game()
+	
+	fade_overlay.fade_out()
+
+
+
+func _on_fade_overlay_on_complete_fade_out() -> void:
+	if(isGameRestarting):
+		fade_overlay.fade_in()
+
+
+func _on_fade_overlay_on_complete_fade_in() -> void:
+	if(isGameRestarting):
+		new_game()

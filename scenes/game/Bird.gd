@@ -11,7 +11,6 @@ var t = 0
 func _physics_process(delta: float) -> void:
 	
 	velocity.y = cos(t*0.01)*40
-	print(velocity.y)
 	
 	position.y += balloon.risingSpeed*delta
 	position += velocity*delta

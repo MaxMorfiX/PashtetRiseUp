@@ -68,3 +68,7 @@ func createBird() -> void:
 	
 	# Spawn the bird by adding it to the Main scene.
 	obstacles.add_child(bird)
+	
+func stop_game():
+	$ThunderCloudsTimer.stop()
+	$BirdTimer.stop()
