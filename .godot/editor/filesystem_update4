@@ -6,3 +6,8 @@ res://scenes/game/Bird.tscn
 res://scenes/game/IngameScene.gd
 res://scenes/game/Balloon.gd
 res://scenes/game/Bird.gd
+res://savegame/SaveGame.gd
+res://scenes/menus/IntroScene.tscn
+res://scenes/menus/MainMenuScene.tscn
+res://scenes/menus/MainMenuScene.gd
+res://scenes/menus/GameSettingsScene.gd

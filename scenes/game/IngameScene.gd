@@ -5,6 +5,8 @@ extends Node2D
 @onready var scoreLabel = $UI/Score
 @onready var maxScoreLabel = $UI/MaxScore
 
+#как сказал великий MaxMorfiX, первый код всегда будет говнокодом
+
 var isGameRestarting = false
 
 var score = 0
@@ -13,8 +15,7 @@ var max_score = 0
 func _ready() -> void:
 	fade_overlay.visible = true
 	
-	if SaveGame.has_save():
-		SaveGame.load_game(get_tree())
+	max_score = SaveGame.load_game_value() || 0.00
 	
 	pause_overlay.game_exited.connect(_save_game)
 	
@@ -28,7 +29,7 @@ func _input(event) -> void:
 		pause_overlay.visible = true
 		
 func _save_game() -> void:
-	SaveGame.save_game(get_tree())
+	SaveGame.save_game_value(max_score)
 
 func new_game():
 	score = 0
@@ -42,7 +43,7 @@ func add_score():
 	score = round(score*1000)/1000
 	scoreLabel.text = "Score: " + str(score)
 	
-	if score > max_score:
+	if score > int(max_score):
 		max_score = score
 		maxScoreLabel.text = "Max Score: " + str(max_score)
 	
