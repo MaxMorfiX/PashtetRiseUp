@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="DeadUp"
-run/main_scene="res://scenes/game/IngameScene.tscn"
+run/main_scene="res://scenes/menus/MainMenuScene.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
 

@@ -44,9 +44,7 @@ func restart_game():
 	
 	isGameRestarting = true
 	
-	for n in $Obstacles.get_children():
-		$Obstacles.remove_child(n)
-		n.queue_free()
+	$Balloon.isLocked = true
 		
 	$ScoreTimer.stop()
 	$ObstaclesSpawner.stop_game()
@@ -57,6 +55,12 @@ func restart_game():
 
 func _on_fade_overlay_on_complete_fade_out() -> void:
 	if(isGameRestarting):
+		
+		for n in $Obstacles.get_children():
+			$Obstacles.remove_child(n)
+			n.queue_free()
+		
+		$Balloon.isLocked = false
 		fade_overlay.fade_in()
 
 

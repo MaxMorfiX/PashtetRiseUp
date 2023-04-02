@@ -1,18 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://b21ke2q8qyehp"]
+[gd_scene load_steps=7 format=3 uid="uid://b21ke2q8qyehp"]
 
 [ext_resource type="Script" path="res://scenes/game/ThunderCloud.gd" id="1_i24vn"]
-[ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="1_j3oyo"]
+[ext_resource type="Texture2D" uid="uid://nnesma5f285w" path="res://sprites/thunderCloud.png" id="2_3e1tl"]
+[ext_resource type="Texture2D" uid="uid://clqs55et3cymh" path="res://sprites/thunderCloudBlue.png" id="3_vs3of"]
+[ext_resource type="Texture2D" uid="uid://c8h1nqukfopvl" path="res://sprites/thunderCloudYellow.png" id="4_dhytk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d43g5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3e1tl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vs3of")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dhytk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vs3of")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jlonc"]
-size = Vector2(125, 62.5)
+size = Vector2(80, 70)
 
 [node name="ThunderCloud" type="Area2D"]
 script = ExtResource("1_i24vn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.815686, 0, 0, 1)
-scale = Vector2(1, 0.5)
-texture = ExtResource("1_j3oyo")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, -1)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_d43g5")
+autoplay = "default"
+frame_progress = 0.917263
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jlonc")

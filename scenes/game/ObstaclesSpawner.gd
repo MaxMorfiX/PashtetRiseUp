@@ -37,7 +37,7 @@ func new_game():
 
 
 func _on_score_timer_timeout() -> void:
-	$ThunderCloudsTimer.wait_time = 100/($"/root/IngameScene".score + 10)
+	$ThunderCloudsTimer.wait_time = 70/($"/root/IngameScene".score + 10)
 	$BirdTimer.wait_time = 50/($"/root/IngameScene".score + 10)
 #	print("time left: ", $ThunderCloudsTimer.time_left)
 #	print("wait time: ", $ThunderCloudsTimer.wait_time)
@@ -63,6 +63,7 @@ func createBird() -> void:
 	
 	if(bird.position.x > 300):
 		bird.velocity.x = -40
+		bird.get_node("Sprite2D").set_flip_h(true)
 	else:
 		bird.velocity.x = 40
 	
