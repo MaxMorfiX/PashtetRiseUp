@@ -1,24 +1,24 @@
 [gd_scene load_steps=7 format=3 uid="uid://bym33b7x5swlx"]
 
 [ext_resource type="Script" path="res://scenes/game/Balloon.gd" id="1_ya47g"]
-[ext_resource type="Texture2D" uid="uid://beka31fqrqm7u" path="res://sprites/balloon_0.png" id="2_hd74t"]
-[ext_resource type="Texture2D" uid="uid://df1wojul6c6ft" path="res://sprites/balloon_1.png" id="3_5l06l"]
-[ext_resource type="Texture2D" uid="uid://8nq1ra8fpd2a" path="res://sprites/balloon_2.png" id="4_neuaa"]
+[ext_resource type="Texture2D" path="res://sprites/balloon_0.png" id="2_wil2j"]
+[ext_resource type="Texture2D" path="res://sprites/balloon_1.png" id="3_x5vqr"]
+[ext_resource type="Texture2D" path="res://sprites/balloon_2.png" id="4_kkeq8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_11b4t"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_hd74t")
+"texture": ExtResource("2_wil2j")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_5l06l")
+"texture": ExtResource("3_x5vqr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_neuaa")
+"texture": ExtResource("4_kkeq8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_5l06l")
+"texture": ExtResource("3_x5vqr")
 }],
 "loop": true,
 "name": &"default",
@@ -39,7 +39,7 @@ position = Vector2(0, 7.5)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_11b4t")
 autoplay = "default"
-frame_progress = 0.843809
+frame_progress = 0.710743
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)

@@ -78,8 +78,8 @@ wait_time = 0.05
 
 [connection signal="on_complete_fade_in" from="UI/FadeOverlay" to="." method="_on_fade_overlay_on_complete_fade_in"]
 [connection signal="on_complete_fade_out" from="UI/FadeOverlay" to="." method="_on_fade_overlay_on_complete_fade_out"]
-[connection signal="timeout" from="ObstaclesSpawner/BirdTimer" to="ObstaclesSpawner" method="createBird"]
 [connection signal="timeout" from="ObstaclesSpawner/BirdTimer" to="ObstaclesSpawner" method="_on_bird_timer_timeout"]
+[connection signal="timeout" from="ObstaclesSpawner/BirdTimer" to="ObstaclesSpawner" method="createBird"]
 [connection signal="timeout" from="ObstaclesSpawner/ThunderCloudsTimer" to="ObstaclesSpawner" method="createThunderCloud"]
 [connection signal="timeout" from="ScoreTimer" to="." method="add_score"]
 [connection signal="timeout" from="ScoreTimer" to="ObstaclesSpawner" method="_on_score_timer_timeout"]

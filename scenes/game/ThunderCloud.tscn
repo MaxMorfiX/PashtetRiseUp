@@ -1,24 +1,24 @@
 [gd_scene load_steps=7 format=3 uid="uid://b21ke2q8qyehp"]
 
 [ext_resource type="Script" path="res://scenes/game/ThunderCloud.gd" id="1_i24vn"]
-[ext_resource type="Texture2D" uid="uid://nnesma5f285w" path="res://sprites/thunderCloud.png" id="2_3e1tl"]
-[ext_resource type="Texture2D" uid="uid://clqs55et3cymh" path="res://sprites/thunderCloudBlue.png" id="3_vs3of"]
-[ext_resource type="Texture2D" uid="uid://c8h1nqukfopvl" path="res://sprites/thunderCloudYellow.png" id="4_dhytk"]
+[ext_resource type="Texture2D" path="res://sprites/thunderCloud.png" id="2_nd2te"]
+[ext_resource type="Texture2D" path="res://sprites/thunderCloudBlue.png" id="3_7yao1"]
+[ext_resource type="Texture2D" path="res://sprites/thunderCloudYellow.png" id="4_8q7u3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d43g5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_3e1tl")
+"texture": ExtResource("2_nd2te")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_vs3of")
+"texture": ExtResource("3_7yao1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_dhytk")
+"texture": ExtResource("4_8q7u3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_vs3of")
+"texture": ExtResource("3_7yao1")
 }],
 "loop": true,
 "name": &"default",
@@ -37,7 +37,7 @@ position = Vector2(-1, -1)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_d43g5")
 autoplay = "default"
-frame_progress = 0.917263
+frame_progress = 0.793847
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jlonc")

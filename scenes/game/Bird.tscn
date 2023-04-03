@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://ldxuuaenl8xh"]
 
 [ext_resource type="Script" path="res://scenes/game/Bird.gd" id="1_v4u0f"]
-[ext_resource type="Texture2D" uid="uid://da2rdycuv7fc2" path="res://sprites/bird_0.png" id="2_id21j"]
-[ext_resource type="Texture2D" uid="uid://bln40kgw7dkoh" path="res://sprites/bird_1.png" id="3_ypxgv"]
+[ext_resource type="Texture2D" path="res://sprites/bird_0.png" id="2_g0al4"]
+[ext_resource type="Texture2D" path="res://sprites/bird_1.png" id="3_p2qdt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_422in"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_id21j")
+"texture": ExtResource("2_g0al4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_ypxgv")
+"texture": ExtResource("3_p2qdt")
 }],
 "loop": true,
 "name": &"default",
@@ -31,7 +31,7 @@ position = Vector2(-2, 1)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_422in")
 autoplay = "default"
-frame_progress = 0.419826
+frame_progress = 0.390183
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.75, 0)
